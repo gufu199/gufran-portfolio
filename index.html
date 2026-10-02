@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gufran Shaikh - Shopify, WooCommerce and custom e-commerce website designer and developer.">
+  <title>Gufran Shaikh | Web Developer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 90%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid #eee;
+      backdrop-filter: blur(12px);
+    }
+    nav {
+      min-height: 76px; display: flex;
+      align-items: center; justify-content: space-between;
+    }
+    .logo { font-size: 23px; font-weight: 800; letter-spacing: -1px; }
+    .logo span { color: #888; }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .nav-links a { font-size: 13px; color: #555; }
+    .nav-links a:hover { color: #000; }
+    .nav-cta, .btn-dark {
+      background: #111; color: white; padding: 12px 20px;
+      border-radius: 5px; font-size: 13px; display: inline-block;
+      border: 1px solid #111; transition: .2s;
+    }
+    .nav-cta:hover, .btn-dark:hover { background: #fff; color: #111; }
+    .menu-btn {
+      display: none; border: 0; background: none;
+      font-size: 25px; cursor: pointer;
+    }
+    .hero { padding: 110px 0 100px; }
+    .eyebrow {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 3px;
+      color: #777; font-weight: 700; margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(44px, 8vw, 88px);
+      line-height: 1.03; letter-spacing: -5px;
+      max-width: 900px; font-weight: 800;
+    }
+    .hero h1 span { color: #999; }
+    .hero-desc {
+      color: #666; font-size: 16px; max-width: 570px;
+      margin: 25px 0 30px;
+    }
+    .btn-outline {
+      border: 1px solid #ccc; padding: 12px 20px;
+      border-radius: 5px; font-size: 13px; display: inline-block;
+      margin-left: 8px;
+    }
+    .btn-outline:hover { border-color: #111; }
+    .availability {
+      margin-top: 55px; display: flex; align-items: center;
+      gap: 10px; font-size: 12px; color: #777;
+    }
+    .dot { width: 8px; height: 8px; background: #111; border-radius: 50%; }
+    section { padding: 85px 0; }
+    .section-label {
+      font-size: 11px; text-transform: uppercase;
+      letter-spacing: 3px; color: #888; margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(30px, 5vw, 48px);
+      letter-spacing: -2px; line-height: 1.15;
+      margin-bottom: 35px;
+    }
+    .services { background: #f7f7f7; }
+    .service-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .service-card {
+      background: white; border: 1px solid #eee;
+      padding: 30px 25px; border-radius: 8px;
+      transition: .25s;
+    }
+    .service-card:hover { transform: translateY(-5px); border-color: #aaa; }
+    .service-number { font-size: 12px; color: #999; }
+    .service-card h3 { font-size: 20px; margin: 35px 0 10px; }
+    .service-card p { font-size: 13px; color: #777; }
+    .service-card .arrow { display: block; margin-top: 25px; font-size: 20px; }
+    .project-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;
+    }
+    .project-card { min-width: 0; }
+    .project-image {
+      aspect-ratio: 1.55; border-radius: 8px;
+      background: #f1f1f1; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid #eee;
+    }
+    .project-image img { width: 100%; height: 100%; object-fit: cover; }
+    .project-placeholder {
+      text-align: center; padding: 25px;
+      font-size: clamp(24px, 4vw, 45px);
+      font-weight: 800; letter-spacing: -2px;
+    }
+    .project-placeholder small {
+      display: block; font-size: 10px; letter-spacing: 3px;
+      color: #777; font-weight: 500;
+    }
+    .project-info {
+      display: flex; justify-content: space-between;
+      gap: 10px; padding-top: 16px; align-items: start;
+    }
+    .project-info h3 { font-size: 17px; }
+    .project-info p { color: #888; font-size: 12px; margin-top: 4px; }
+    .project-tag {
+      border: 1px solid #ddd; border-radius: 30px;
+      padding: 5px 10px; font-size: 10px; white-space: nowrap;
+    }
+    .about { background: #111; color: white; }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: start;
+    }
+    .about .section-label { color: #999; }
+    .about-copy { color: #aaa; font-size: 15px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
+    .skills span {
+      border: 1px solid #444; border-radius: 30px;
+      padding: 8px 13px; font-size: 11px; color: #ddd;
+    }
+    .contact { text-align: center; }
+    .contact .section-title { max-width: 700px; margin: 0 auto 20px; }
+    .contact p { color: #777; font-size: 14px; margin-bottom: 28px; }
+    footer { border-top: 1px solid #eee; padding: 25px 0; }
+    .footer-inner {
+      display: flex; justify-content: space-between;
+      align-items: center; gap: 15px; flex-wrap: wrap;
+      color: #888; font-size: 11px;
+    }
+    .footer-links { display: flex; gap: 20px; }
+    @media(max-width: 700px) {
+      nav { min-height: 65px; }
+      .menu-btn { display: block; }
+      .nav-links {
+        display: none; position: absolute; top: 65px; left: 0;
+        width: 100%; padding: 22px 5%;
+        background: white; border-bottom: 1px solid #eee;
+        flex-direction: column; align-items: flex-start; gap: 18px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-cta { display: none; }
+      .hero { padding: 85px 0 65px; }
+      .hero h1 { letter-spacing: -2.5px; }
+      .hero-desc { font-size: 14px; }
+      section { padding: 65px 0; }
+      .service-grid, .project-grid, .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .service-card { padding: 25px 20px; }
+      .service-card h3 { margin-top: 22px; }
+      .about-grid { gap: 20px; }
+      .project-grid { gap: 30px; }
+      .btn-outline { margin: 10px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="#" class="logo">Gufran<span>.</span></a>
+      <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Let's Talk ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <p class="eyebrow">Web Designer & Developer</p>
+      <h1>Building digital<br>experiences that <span>work.</span></h1>
+      <p class="hero-desc">
+        Hi, I'm Gufran Shaikh. I design and develop modern,
+        responsive e-commerce websites using Shopify,
+        WooCommerce and custom technologies.
+      </p>
+      <a href="#projects" class="btn-dark">Explore My Work ↗</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+      <div class="availability">
+        <span class="dot"></span>
+        Open to job opportunities & freelance projects
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <p class="section-label">What I do</p>
+        <h2 class="section-title">Services & Expertise</h2>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-number">01 / E-COMMERCE</span>
+            <h3>Shopify Development</h3>
+            <p>Store setup, custom Liquid sections, product pages,
+              theme customization and responsive storefronts.</p>
+            <span class="arrow">↗</span>
+          </article>
+          <article class="service-card">
+            <span class="service-number">02 / WORDPRESS</span>
+            <h3>WooCommerce</h3>
+            <p>Online store setup, theme customization, product
+              layouts and store functionality.</p>
+            <span class="arrow">↗</span>
+          </article>
+          <article class="service-card">
+            <span class="service-number">03 / DEVELOPMENT</span>
+            <h3>Custom Websites</h3>
+            <p>Responsive business websites, landing pages,
+              custom interfaces and frontend experiences.</p>
+            <span class="arrow">↗</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <p class="section-label">Selected work</p>
+        <h2 class="section-title">Projects & Concepts</h2>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-placeholder">
+                GufuMart
+                <small>ONLINE STORE</small>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h3>GufuMart</h3>
+                <p>E-commerce Store · Shopify</p>
+              </div>
+              <span class="project-tag">Store</span>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-placeholder">
+                STUDIO
+                <small>DESIGN CONCEPT</small>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h3>Modern Brand Store</h3>
+                <p>Concept Project · E-commerce</p>
+              </div>
+              <span class="project-tag">Concept</span>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-placeholder">
+                DIGITAL
+                <small>WEB EXPERIENCE</small>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h3>Business Website</h3>
+                <p>Concept Project · Custom Design</p>
+              </div>
+              <span class="project-tag">Concept</span>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-placeholder">
+                ESSENTIALS
+                <small>ONLINE SHOP</small>
+              </div>
+            </div>
+            <div class="project-info">
+              <div>
+                <h3>Product Store</h3>
+                <p>Concept Project · WooCommerce</p>
+              </div>
+              <span class="project-tag">Concept</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="section-label">About me</p>
+          <h2 class="section-title">Designing with purpose. Building with care.</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            I'm Gufran Shaikh, a web designer and developer
+            focused on creating modern digital experiences
+            and e-commerce websites. I enjoy turning ideas
+            into functional, user-friendly online stores.
+          </p>
+          <div class="skills">
+            <span>Shopify</span>
+            <span>Liquid</span>
+            <span>WooCommerce</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Responsive Design</span>
+            <span>UI Design</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <p class="section-label">Have a project in mind?</p>
+        <h2 class="section-title">Let's build something great together.</h2>
+        <p>Available for freelance projects, collaborations and job opportunities.</p>
+        <a class="btn-dark" href="mailto:YOUR_EMAIL@example.com">Contact Me ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Gufran Shaikh. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="https://github.com/gufu199" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const menuButton = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const opened = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(opened));
+      menuButton.textContent = opened ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = '☰';
+      });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
